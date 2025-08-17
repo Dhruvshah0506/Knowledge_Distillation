@@ -1,0 +1,50 @@
+paths:
+  input_path: Projects/qa_cleaning__and_aug/data/input/Final_Dataset.csv
+  cleaned_path: Projects/qa_cleaning__and_aug/data/processed_dataset/cleaned_qa.csv
+  augmented_path: Projects/qa_cleaning__and_aug/data/output/augmented_qa.csv
+
+models:
+  # Legacy models (keeping for compatibility)
+  back_translation:
+    en_to_fr: Helsinki-NLP/opus-mt-en-fr
+    fr_to_en: Helsinki-NLP/opus-mt-fr-en
+  paraphraser: tuner007/pegasus_paraphrase
+  mlm:
+    model_id: bert-base-uncased
+    max_replacements: 3
+  typo_noise:
+    aug_char_min: 1
+    aug_char_max: 1
+    aug_char_p: 0.01
+
+  # New augmentation models
+  llama3:
+    model_id: meta-llama/Llama-2-7b-chat-hf
+    temperature: 0.7
+    max_tokens: 512
+    tone: "formal"
+
+  mistral:
+    model_id: mistralai/Mistral-7B-Instruct-v0.2
+    temperature: 0.7
+    max_tokens: 512
+    tone: "casual"
+
+  gemini:
+    model_id: gemini-2.0-flash-exp
+    temperature: 0.7
+    max_tokens: 512
+    delay_seconds: 1.0
+    max_retries: 3
+
+  typo_augmentation:
+    words_per_typo: 4  # 1 typo per 4 words
+    include_upper_case: false
+    include_special_char: false
+    include_numeric: false
+
+# Processing settings
+processing:
+  batch_size: 8
+  device: "cuda:3"  # Force GPU 3
+  save_intermediate: true
