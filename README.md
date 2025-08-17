@@ -33,14 +33,6 @@ graph TD
     J -.-> J1[distilled_model/<br/>checkpoints/]
     K -.-> K1[validation_results.csv]
 
-    %% Styling for row changes
-    classDef reduction fill:#ffcccc,stroke:#ff0000,stroke-width:2px
-    classDef expansion fill:#ccffcc,stroke:#00ff00,stroke-width:2px
-    classDef processing fill:#ccccff,stroke:#0000ff,stroke-width:2px
-    
-    class C,G,H reduction
-    class I expansion
-    class D,E,F,J,K,L processing
 ```
 
 ### 🔄 Sequential Data Flow with Row Tracking
@@ -300,3 +292,4 @@ Your knowledge distillation pipeline represents **state-of-the-art engineering**
 **This is a professional-grade system ready for enterprise deployment** with only minor infrastructure enhancements needed for full production readiness.
 
 **Final Assessment: A- (7.67/10)** - Outstanding work! 🚀
+
